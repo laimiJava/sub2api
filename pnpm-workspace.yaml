@@ -1,0 +1,24 @@
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+overrides:
+  js-cookie: 3.0.7
+
+registries:
+  default: https://registry.npmmirror.com/
+
+# 关闭 pnpm 11 的新包冷却期校验，避免镜像源元数据/证明接口导致安装卡死。
+minimumReleaseAge: 0
+
+# 运行 pnpm dev 时不自动触发安装，避免开发启动被依赖校验流程挡住。
+verifyDepsBeforeRun: false
+
+# 降低并发并放宽超时，减少 Windows/弱网络下的大包下载失败。
+networkConcurrency: 4
+fetchTimeout: 600000
+fetchRetries: 5
+fetchRetryMaxtimeout: 120000
+confirmModulesPurge: false
+
+# 允许运行依赖包的安装脚本；esbuild 和 vue-demi 需要 postinstall 才能正常工作。
+ignoreScripts: false
