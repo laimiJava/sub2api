@@ -71,7 +71,7 @@
             <router-link
               v-if="passwordResetEnabled && !backendModeEnabled"
               to="/forgot-password"
-              class="text-sm font-medium text-primary-600 transition-colors hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300"
+              class="text-sm font-medium text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 transition-colors"
             >
               {{ t('auth.forgotPassword') }}
             </router-link>
@@ -93,11 +93,11 @@
         <button
           type="submit"
           :disabled="authActionDisabled || (turnstileEnabled && !turnstileToken)"
-          class="btn btn-primary w-full"
+          class="login-submit-btn w-full flex items-center justify-center py-2.5 px-4 rounded-xl font-medium tracking-wide transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg
             v-if="isLoading"
-            class="-ml-1 mr-2 h-4 w-4 animate-spin text-white"
+            class="-ml-1 mr-2 h-4 w-4 animate-spin text-current"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -174,11 +174,11 @@
 
     <!-- Footer -->
     <template v-if="!backendModeEnabled" #footer>
-      <p class="text-gray-500 dark:text-dark-400">
+      <p class="text-zinc-500 dark:text-zinc-400">
         {{ t('auth.dontHaveAccount') }}
         <router-link
           to="/register"
-          class="font-medium text-primary-600 transition-colors hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300"
+          class="font-medium text-zinc-800 hover:text-zinc-950 dark:text-zinc-200 dark:hover:text-white transition-colors underline underline-offset-4"
         >
           {{ t('auth.signUp') }}
         </router-link>
@@ -562,5 +562,114 @@ function handle2FACancel(): void {
 .fade-leave-to {
   opacity: 0;
   transform: translateY(-8px);
+}
+
+/* Scoped styles for cyber-tech look */
+.text-center h2 {
+  color: #fff !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+}
+
+.text-center p {
+  color: #9fafbf !important;
+}
+
+/* Eyebrow text above the title */
+.text-center::before {
+  content: "SECURE ADMIN PORTAL";
+  display: block;
+  margin-bottom: 6px;
+  color: #f4d08b;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+}
+
+/* Input boxes styling */
+:deep(.input) {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+  border-radius: 16px !important;
+  min-height: 52px !important;
+  transition: all 0.22s ease !important;
+}
+
+:deep(.input:focus) {
+  border-color: rgba(244, 208, 139, 0.72) !important;
+  background: rgba(255, 255, 255, 0.075) !important;
+  box-shadow: 0 0 0 4px rgba(244, 208, 139, 0.09), 0 0 26px rgba(74, 168, 255, 0.11) !important;
+}
+
+:deep(.input-label) {
+  color: #d9e3ee !important;
+  font-size: 14px !important;
+}
+
+/* Icons color */
+:deep(.text-gray-400) {
+  color: #9fb4c9 !important;
+}
+
+/* Forgot password link */
+.text-zinc-500 {
+  color: #aebccd !important;
+}
+.text-zinc-500:hover {
+  color: #f4d08b !important;
+}
+
+/* Action button style */
+.login-submit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  overflow: hidden;
+  color: #10151d !important;
+  font-weight: 800;
+  border: 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8d992, #d4a44c 55%, #7bbcff) !important;
+  box-shadow: 0 18px 42px rgba(214, 168, 79, 0.24);
+  cursor: pointer;
+  transition: .22s;
+}
+
+.login-submit-btn:before {
+  content: "";
+  position: absolute;
+  inset: -60% 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  transform: translateX(-120%) rotate(18deg);
+  transition: .6s;
+}
+
+.login-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: saturate(1.08);
+  box-shadow: 0 24px 60px rgba(214, 168, 79, 0.34), 0 0 34px rgba(74, 168, 255, 0.2);
+  color: #10151d !important;
+}
+
+.login-submit-btn:hover:not(:disabled):before {
+  transform: translateX(120%) rotate(18deg);
+}
+
+.login-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Register links under footer */
+:deep(.text-zinc-500 a) {
+  color: #f4d08b !important;
+}
+
+:deep(.text-zinc-500 a:hover) {
+  color: #ffe3a8 !important;
 }
 </style>

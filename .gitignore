@@ -84,6 +84,8 @@ temp/
 *.log
 *.bak
 .cache/
+.pnpm-store/
+frontend/.pnpm-store/
 .dev/
 .serena/
 

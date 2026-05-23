@@ -15,24 +15,16 @@
   <!-- Default Home Page -->
   <div
     v-else
-    class="relative flex min-h-screen flex-col overflow-hidden bg-gradient-to-br from-gray-50 via-primary-50/30 to-gray-100 dark:from-dark-950 dark:via-dark-900 dark:to-dark-950"
+    class="page-shell relative flex min-h-screen flex-col overflow-hidden"
   >
     <!-- Background Decorations -->
     <div class="pointer-events-none absolute inset-0 overflow-hidden">
+      <div class="halo halo-gold" aria-hidden="true"></div>
+      <div class="halo halo-blue" aria-hidden="true"></div>
+      <div class="data-line line-a" aria-hidden="true"></div>
+      <div class="data-line line-b" aria-hidden="true"></div>
       <div
-        class="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-primary-400/20 blur-3xl"
-      ></div>
-      <div
-        class="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-primary-500/15 blur-3xl"
-      ></div>
-      <div
-        class="absolute left-1/3 top-1/4 h-72 w-72 rounded-full bg-primary-300/10 blur-3xl"
-      ></div>
-      <div
-        class="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-primary-400/10 blur-3xl"
-      ></div>
-      <div
-        class="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.03)_1px,transparent_1px)] bg-[size:64px_64px]"
+        class="absolute inset-0 bg-[linear-gradient(rgba(244,208,139,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(244,208,139,0.015)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(74,168,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(74,168,255,0.015)_1px,transparent_1px)] bg-[size:52px_52px]"
       ></div>
     </div>
 
@@ -118,11 +110,11 @@
           <!-- Left: Text Content -->
           <div class="flex-1 text-center lg:text-left">
             <h1
-              class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+              class="mb-4 text-4xl font-bold hero-title md:text-5xl lg:text-6xl"
             >
               {{ siteName }}
             </h1>
-            <p class="mb-8 text-lg text-gray-600 dark:text-dark-300 md:text-xl">
+            <p class="hero-copy-desc mb-8 text-lg md:text-xl">
               {{ siteSubtitle }}
             </p>
 
@@ -130,7 +122,7 @@
             <div>
               <router-link
                 :to="isAuthenticated ? dashboardPath : '/login'"
-                class="btn btn-primary px-8 py-3 text-base shadow-lg shadow-primary-500/30"
+                class="cta-button btn px-8 py-3 text-base"
               >
                 {{ isAuthenticated ? t('home.goToDashboard') : t('home.getStarted') }}
                 <Icon name="arrowRight" size="md" class="ml-2" :stroke-width="2" />
@@ -179,26 +171,26 @@
         <!-- Feature Tags - Centered -->
         <div class="mb-12 flex flex-wrap items-center justify-center gap-4 md:gap-6">
           <div
-            class="inline-flex items-center gap-2.5 rounded-full border border-gray-200/50 bg-white/80 px-5 py-2.5 shadow-sm backdrop-blur-sm dark:border-dark-700/50 dark:bg-dark-800/80"
+            class="tag-badge inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 shadow-sm backdrop-blur-sm"
           >
             <Icon name="swap" size="sm" class="text-primary-500" />
-            <span class="text-sm font-medium text-gray-700 dark:text-dark-200">{{
+            <span class="text-sm font-medium">{{
               t('home.tags.subscriptionToApi')
             }}</span>
           </div>
           <div
-            class="inline-flex items-center gap-2.5 rounded-full border border-gray-200/50 bg-white/80 px-5 py-2.5 shadow-sm backdrop-blur-sm dark:border-dark-700/50 dark:bg-dark-800/80"
+            class="tag-badge inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 shadow-sm backdrop-blur-sm"
           >
             <Icon name="shield" size="sm" class="text-primary-500" />
-            <span class="text-sm font-medium text-gray-700 dark:text-dark-200">{{
+            <span class="text-sm font-medium">{{
               t('home.tags.stickySession')
             }}</span>
           </div>
           <div
-            class="inline-flex items-center gap-2.5 rounded-full border border-gray-200/50 bg-white/80 px-5 py-2.5 shadow-sm backdrop-blur-sm dark:border-dark-700/50 dark:bg-dark-800/80"
+            class="tag-badge inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 shadow-sm backdrop-blur-sm"
           >
             <Icon name="chart" size="sm" class="text-primary-500" />
-            <span class="text-sm font-medium text-gray-700 dark:text-dark-200">{{
+            <span class="text-sm font-medium">{{
               t('home.tags.realtimeBilling')
             }}</span>
           </div>
@@ -208,7 +200,7 @@
         <div class="mb-12 grid gap-6 md:grid-cols-3">
           <!-- Feature 1: Unified Gateway -->
           <div
-            class="group rounded-2xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-dark-700/50 dark:bg-dark-800/60"
+            class="feature-card group rounded-2xl p-6 backdrop-blur-sm"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/30 transition-transform group-hover:scale-110"
@@ -225,7 +217,7 @@
 
           <!-- Feature 2: Account Pool -->
           <div
-            class="group rounded-2xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-dark-700/50 dark:bg-dark-800/60"
+            class="feature-card group rounded-2xl p-6 backdrop-blur-sm"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-lg shadow-primary-500/30 transition-transform group-hover:scale-110"
@@ -254,7 +246,7 @@
 
           <!-- Feature 3: Billing & Quota -->
           <div
-            class="group rounded-2xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-dark-700/50 dark:bg-dark-800/60"
+            class="feature-card group rounded-2xl p-6 backdrop-blur-sm"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 shadow-lg shadow-purple-500/30 transition-transform group-hover:scale-110"
@@ -295,7 +287,7 @@
         <div class="mb-16 flex flex-wrap items-center justify-center gap-4">
           <!-- Claude - Supported -->
           <div
-            class="flex items-center gap-2 rounded-xl border border-primary-200 bg-white/60 px-5 py-3 ring-1 ring-primary-500/20 backdrop-blur-sm dark:border-primary-800 dark:bg-dark-800/60"
+            class="provider-badge flex items-center gap-2 rounded-xl px-5 py-3 backdrop-blur-sm"
           >
             <div
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-orange-400 to-orange-500"
@@ -310,7 +302,7 @@
           </div>
           <!-- GPT - Supported -->
           <div
-            class="flex items-center gap-2 rounded-xl border border-primary-200 bg-white/60 px-5 py-3 ring-1 ring-primary-500/20 backdrop-blur-sm dark:border-primary-800 dark:bg-dark-800/60"
+            class="provider-badge flex items-center gap-2 rounded-xl px-5 py-3 backdrop-blur-sm"
           >
             <div
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-green-600"
@@ -325,7 +317,7 @@
           </div>
           <!-- Gemini - Supported -->
           <div
-            class="flex items-center gap-2 rounded-xl border border-primary-200 bg-white/60 px-5 py-3 ring-1 ring-primary-500/20 backdrop-blur-sm dark:border-primary-800 dark:bg-dark-800/60"
+            class="provider-badge flex items-center gap-2 rounded-xl px-5 py-3 backdrop-blur-sm"
           >
             <div
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600"
@@ -340,7 +332,7 @@
           </div>
           <!-- Antigravity - Supported -->
           <div
-            class="flex items-center gap-2 rounded-xl border border-primary-200 bg-white/60 px-5 py-3 ring-1 ring-primary-500/20 backdrop-blur-sm dark:border-primary-800 dark:bg-dark-800/60"
+            class="provider-badge flex items-center gap-2 rounded-xl px-5 py-3 backdrop-blur-sm"
           >
             <div
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-rose-500 to-pink-600"
@@ -355,7 +347,7 @@
           </div>
           <!-- More - Coming Soon -->
           <div
-            class="flex items-center gap-2 rounded-xl border border-gray-200/50 bg-white/40 px-5 py-3 opacity-60 backdrop-blur-sm dark:border-dark-700/50 dark:bg-dark-800/40"
+            class="provider-badge flex items-center gap-2 rounded-xl px-5 py-3 opacity-60 backdrop-blur-sm"
           >
             <div
               class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-gray-500 to-gray-600"
@@ -417,7 +409,7 @@ const authStore = useAuthStore()
 const appStore = useAppStore()
 
 // Site settings - directly from appStore (already initialized from injected config)
-const siteName = computed(() => appStore.cachedPublicSettings?.site_name || appStore.siteName || 'Sub2API')
+const siteName = computed(() => appStore.cachedPublicSettings?.site_name || appStore.siteName || 'LAIMI')
 const siteLogo = computed(() => appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '')
 const siteSubtitle = computed(() => appStore.cachedPublicSettings?.site_subtitle || 'AI API Gateway Platform')
 const docUrl = computed(() => appStore.cachedPublicSettings?.doc_url || appStore.docUrl || '')
@@ -481,6 +473,183 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Home Page Cyber Tech Scoped Styles */
+.page-shell {
+  --black: #070b12;
+  --blue: #0b1d35;
+  --gold: #f4d08b;
+  --gold2: #d2a34d;
+  --tech: #4aa8ff;
+  --silver: #c7d2df;
+  --muted: #8797aa;
+  --glass: rgba(12, 24, 42, 0.64);
+  --border: rgba(255, 255, 255, 0.14);
+  --shadow: 0 30px 90px rgba(0, 0, 0, 0.46);
+
+  color: #eef5ff;
+  background: radial-gradient(circle at 18% 16%, rgba(244, 208, 139, 0.16), transparent 30%),
+              radial-gradient(circle at 86% 28%, rgba(74, 168, 255, 0.17), transparent 30%),
+              linear-gradient(135deg, var(--black), #081529 52%, #04070d) !important;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Header link styles on dark */
+header a, header button {
+  color: #cbd7e4 !important;
+}
+header a:hover, header button:hover {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hero description */
+.hero-copy-desc {
+  color: #cbd7e4 !important;
+}
+
+/* CTA Button */
+.cta-button {
+  background: linear-gradient(135deg, #f8d992, #d4a44c 55%, #7bbcff) !important;
+  color: #10151d !important;
+  font-weight: 800;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(214, 168, 79, 0.25);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(214, 168, 79, 0.4);
+}
+
+/* Tag badges */
+.tag-badge {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #cbd7e4 !important;
+}
+
+/* Provider Title & Headings */
+h2, h3 {
+  color: #fff !important;
+}
+
+/* Feature card text */
+.feature-card h3 {
+  color: #fff !important;
+}
+.feature-card p {
+  color: #9dadc0 !important;
+}
+
+/* Footer border */
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+footer p, footer a {
+  color: #8797aa !important;
+}
+footer a:hover {
+  color: #fff !important;
+}
+
+/* Halo effects */
+.halo {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.halo-gold {
+  left: -100px;
+  top: 15%;
+  background: rgba(214, 168, 79, 0.22);
+}
+
+.halo-blue {
+  right: -100px;
+  bottom: 20%;
+  background: rgba(74, 168, 255, 0.18);
+}
+
+/* Data stream line animations */
+.data-line {
+  position: absolute;
+  width: 430px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244, 208, 139, 0.5), transparent);
+  animation: stream 7s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.line-a {
+  top: 30%;
+  right: 15%;
+  transform: rotate(-18deg);
+}
+
+.line-b {
+  left: 5%;
+  bottom: 25%;
+  animation-delay: 2.8s;
+  transform: rotate(-18deg);
+}
+
+@keyframes stream {
+  from {
+    opacity: 0;
+    transform: translateX(-160px) rotate(-18deg);
+  }
+  30%, 70% {
+    opacity: 0.75;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(220px) rotate(-18deg);
+  }
+}
+
+/* Hero Section text gradient */
+.hero-title {
+  background: linear-gradient(135deg, #fff, #e8edf5 35%, #f4d08b 76%, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glassmorphism card grid items */
+.feature-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(150deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.4));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 208, 139, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(74, 168, 255, 0.1);
+}
+
+/* Provider Tag styling */
+.provider-badge {
+  border: 1px solid rgba(74, 168, 255, 0.2);
+  background: rgba(15, 23, 42, 0.6);
+  box-shadow: 0 0 15px rgba(74, 168, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.provider-badge:hover {
+  border-color: rgba(244, 208, 139, 0.5);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(244, 208, 139, 0.15);
+}
+
 /* Terminal Container */
 .terminal-container {
   position: relative;
@@ -490,12 +659,10 @@ onMounted(() => {
 /* Terminal Window */
 .terminal-window {
   width: 420px;
-  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(145deg, #0b1528 0%, #030712 100%);
   border-radius: 14px;
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(74, 168, 255, 0.1);
   overflow: hidden;
   transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
   transition: transform 0.3s ease;
@@ -631,14 +798,5 @@ onMounted(() => {
   100% {
     opacity: 0;
   }
-}
-
-/* Dark mode adjustments */
-:deep(.dark) .terminal-window {
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(20, 184, 166, 0.2),
-    0 0 40px rgba(20, 184, 166, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 </style>
