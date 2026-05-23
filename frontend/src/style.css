@@ -763,3 +763,150 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
+
+/* ============ LAIMI Cyber Tech Dashboard Overrides ============ */
+.dark body, .dark .min-h-screen {
+  background: radial-gradient(circle at 18% 16%, rgba(244, 208, 139, 0.04), transparent 30%),
+              radial-gradient(circle at 86% 28%, rgba(74, 168, 255, 0.05), transparent 30%),
+              linear-gradient(135deg, #070b12, #081529 52%, #04070d) !important;
+}
+
+/* Glassmorphic cards in dark mode */
+.dark .card, .dark .glass-card, .dark .stat-card {
+  background: linear-gradient(145deg, rgba(15, 31, 54, 0.65), rgba(9, 15, 26, 0.55)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(16px);
+}
+
+.dark .card-hover:hover {
+  border-color: rgba(244, 208, 139, 0.32) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(74, 168, 255, 0.08) !important;
+}
+
+/* Sidebar styling in dark mode */
+.dark .sidebar {
+  background: linear-gradient(180deg, rgba(15, 31, 54, 0.88), rgba(9, 15, 26, 0.95)) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px);
+}
+
+.dark .sidebar-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.dark .sidebar-link {
+  color: #aebccd !important;
+}
+
+.dark .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+}
+
+.dark .sidebar-link-active {
+  background: linear-gradient(90deg, rgba(244, 208, 139, 0.12), rgba(74, 168, 255, 0.03)) !important;
+  color: #f4d08b !important;
+  border-left: 3px solid #f4d08b !important;
+}
+
+/* Header in dark mode */
+.dark header, .dark .bg-white\/80 {
+  background: rgba(7, 11, 18, 0.65) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px);
+}
+
+/* Table styling in dark mode */
+.dark .table th {
+  background: rgba(15, 31, 54, 0.5) !important;
+  color: #cbd7e4 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark .table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Dropdown menus in dark mode */
+.dark .dropdown {
+  background: linear-gradient(145deg, #0f1f36, #090f1a) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .dropdown-item {
+  color: #cbd7e4 !important;
+}
+
+.dark .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+}
+
+/* Tabs and badges */
+.dark .tabs {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .tab {
+  color: #8797aa !important;
+}
+
+.dark .tab-active {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f4d08b !important;
+}
+
+.dark .badge-primary {
+  background: rgba(244, 208, 139, 0.1) !important;
+  color: #f4d08b !important;
+}
+
+.dark .text-primary-600 {
+  color: #f4d08b !important;
+}
+.dark .text-primary-500 {
+  color: #4aa8ff !important;
+}
+
+.dark .border-primary-500\/30 {
+  border-color: rgba(244, 208, 139, 0.3) !important;
+}
+
+.dark .bg-primary-50 {
+  background: rgba(244, 208, 139, 0.06) !important;
+}
+
+/* Inputs on dashboard */
+.dark .input, .dark input[type='text'], .dark input[type='password'], .dark select, .dark textarea {
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+
+.dark .input:focus, .dark input[type='text']:focus, .dark input[type='password']:focus, .dark select:focus {
+  border-color: rgba(244, 208, 139, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(244, 208, 139, 0.08), 0 0 15px rgba(74, 168, 255, 0.05) !important;
+}
+
+/* Modal dialogue styles */
+.dark .modal-content, .dark .dialog-container {
+  background: linear-gradient(145deg, #0e1b2e, #060a12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark .modal-header, .dark .dialog-header, .dark .modal-footer, .dark .dialog-footer {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.dark .dialog-footer {
+  background: rgba(0, 0, 0, 0.15) !important;
+}
+
