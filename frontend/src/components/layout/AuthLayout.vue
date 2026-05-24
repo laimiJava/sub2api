@@ -22,39 +22,39 @@
           </svg>
         </div>
         <div>
-          <p class="eyebrow">LAIMI GATEWAY SERVICE</p>
+          <p class="eyebrow">LaiMiAi GATEWAY SERVICE</p>
           <h1>{{ siteName }}</h1>
         </div>
       </header>
 
       <div class="hero-copy">
-        <p class="badge">订阅转 API 数字化升级方案</p>
-        <h2>企业及AI管理平台</h2>
-        <p>让用户像使用水电一样使用ai。统一接入与转换多种第三方订阅与平台接口，集中控制限额、调用日志、缓存与成本审计，为您的 AI 业务提供极速、稳定的网络与模型调用能力。</p>
+        <h2>企业AI管理平台</h2>
+        <p class="hero-copy-display">让用户像使用水电一样使用AI</p>
+        <p>统一管理 · 安全可控 · 高效协同 · 智能驱动</p>
       </div>
 
       <div class="selling-points">
         <article>
           <span class="icon icon-model"></span>
-          <h3>多链接一键转换</h3>
-          <p>自动将各种格式的订阅链接转换为统一的标准 OpenAI API 格式。</p>
+          <h3>模型灵活调用</h3>
+          <p>多模型接入，按需选择</p>
         </article>
         <article>
           <span class="icon icon-auth"></span>
-          <h3>智能缓存与分发</h3>
-          <p>自定义缓存策略，大幅降低重复调用延迟，提升业务响应速度。</p>
+          <h3>资源集中管理</h3>
+          <p>统一配置，降本增效</p>
         </article>
         <article>
           <span class="icon icon-safe"></span>
-          <h3>额度与安全审计</h3>
-          <p>细粒度控制密钥额度与到期时间，留存每一次 API 请求的流控日志。</p>
+          <h3>额度与安全</h3>
+          <p>用量可视化，数据安全可控</p>
         </article>
       </div>
 
       <section class="cockpit" aria-label="API 运行驾驶舱">
         <div class="cockpit-head">
           <div>
-            <span>LAIMI 运行驾驶舱</span>
+            <span>LaiMiAi 运行驾驶舱</span>
             <strong>今日网关运行概览</strong>
           </div>
           <em>安全运行中</em>
@@ -65,15 +65,23 @@
             <strong>186,420</strong>
             <small>较昨日 +15.4%</small>
           </article>
-          <article>
-            <span>响应耗时</span>
-            <strong>125 ms</strong>
-            <small>智能路由加速</small>
+          <article class="metric-allocation-card">
+            <span>部门使用额度</span>
+            <div class="metric-allocation-list">
+              <div><b>研发部</b><strong>$ 8,600</strong></div>
+              <div><b>产品部</b><strong>$ 4,200</strong></div>
+              <div><b>设计部</b><strong>$ 2,800</strong></div>
+              <div><b>运营部</b><strong>$ 5,400</strong></div>
+            </div>
           </article>
-          <article>
-            <span>运行节点</span>
-            <strong>8 个</strong>
-            <small>状态全部正常</small>
+          <article class="metric-allocation-card">
+            <span>员工使用额度</span>
+            <div class="metric-allocation-list">
+              <div><b>李工</b><strong>$ 2,600</strong></div>
+              <div><b>付工</b><strong>$ 2,150</strong></div>
+              <div><b>汤工</b><strong>$ 1,980</strong></div>
+              <div><b>王工</b><strong>$ 1,720</strong></div>
+            </div>
           </article>
         </div>
         <div class="cockpit-grid">
@@ -145,7 +153,7 @@ import { sanitizeUrl } from '@/utils/url'
 
 const appStore = useAppStore()
 
-const siteName = computed(() => appStore.siteName || 'LAIMI')
+const siteName = computed(() => appStore.siteName || 'LaiMiAi')
 const siteLogo = computed(() => sanitizeUrl(appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
 const siteSubtitle = computed(() => appStore.cachedPublicSettings?.site_subtitle || 'Subscription to API Conversion Platform')
 
@@ -450,18 +458,6 @@ onUnmounted(() => {
   color: #fff;
 }
 
-.badge {
-  display: inline-flex;
-  margin: 0 0 18px;
-  padding: 9px 14px;
-  color: #ffe3a8;
-  border: 1px solid rgba(244, 208, 139, 0.25);
-  border-radius: 999px;
-  background: rgba(244, 208, 139, 0.08);
-  align-self: flex-start;
-  font-size: 13px;
-}
-
 .hero-copy h2 {
   margin: 0;
   max-width: 760px;
@@ -473,6 +469,19 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.hero-copy-display {
+  margin: 10px 0 0 !important;
+  max-width: 760px;
+  font-size: clamp(32px, 4vw, 54px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #fff, #e8edf5 35%, #f4d08b 76%, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
 }
 
 .hero-copy p {
@@ -645,6 +654,45 @@ onUnmounted(() => {
 .metrics small {
   color: #52d6a3;
   font-size: 12px;
+}
+
+.metric-allocation-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.metric-allocation-list {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+
+.metric-allocation-list div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.metric-allocation-list div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.metric-allocation-list b {
+  color: #dce6f2;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.metric-allocation-list strong {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f4d08b;
 }
 
 .cockpit-grid {

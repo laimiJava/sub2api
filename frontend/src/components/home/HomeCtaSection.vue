@@ -29,7 +29,7 @@ defineProps<{
               </span>
             </h2>
             <p class="mt-6 max-w-2xl text-base leading-8 text-slate-300/82 sm:text-lg">
-              保留现有业务逻辑，只替换模型基础地址，即可获得统一网关、成本优化、上游切换与可观测能力。
+              只替换模型基础地址，即可获得统一网关、成本优化、上游切换与可观测能力。
             </p>
           </div>
 
