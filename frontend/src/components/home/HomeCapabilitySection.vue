@@ -9,13 +9,13 @@ defineProps<{
 </script>
 
 <template>
-  <section id="capabilities" class="relative -mt-1 px-4 pb-6 pt-1 sm:px-6 lg:px-8">
+  <section id="capabilities" class="relative px-4 pb-6 pt-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
-      <div class="grid gap-3 xl:grid-cols-3">
+      <div class="grid gap-4 xl:grid-cols-3">
         <article
           v-for="feature in features"
           :key="feature.title"
-          class="home-reveal home-hover-card group relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_22px_72px_rgba(4,10,28,0.2),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl"
+          class="home-feature-card home-reveal home-hover-card group relative overflow-hidden rounded-[30px] p-6"
         >
           <div
             class="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/45 to-transparent opacity-70"
@@ -41,22 +41,20 @@ defineProps<{
         </article>
       </div>
 
-      <div
-        class="home-reveal relative mt-3 overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] px-5 py-8 shadow-[0_24px_84px_rgba(4,10,28,0.24),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl sm:px-7"
-      >
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(101,113,255,0.12),transparent_32%),radial-gradient(circle_at_80%_18%,rgba(80,195,255,0.1),transparent_26%)]" />
+      <div class="home-model-panel home-reveal relative mt-5 overflow-hidden rounded-[34px] px-5 py-8 sm:px-7">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(244,208,139,0.14),transparent_28%),radial-gradient(circle_at_80%_18%,rgba(74,168,255,0.12),transparent_26%)]" />
         <div class="relative z-10 text-center">
           <h2 class="text-[1.9rem] font-semibold tracking-[-0.08em] text-white sm:text-[2.3rem]">
             已支持的 AI 模型
           </h2>
-          <p class="mt-2 text-sm text-slate-300/72 sm:text-[15px]">一个 API，多种选择</p>
+          <p class="mt-2 text-sm text-slate-300/72 sm:text-[15px]">一个 API，覆盖多种能力选择</p>
         </div>
 
         <div class="relative z-10 mt-6 flex flex-wrap items-center justify-center gap-3">
           <article
             v-for="model in models"
             :key="model.name"
-            class="home-hover-card flex min-w-[210px] items-center gap-4 rounded-[20px] border border-white/10 bg-white/[0.05] px-5 py-3.5 backdrop-blur-xl transition sm:min-w-[236px]"
+            class="home-model-card home-hover-card flex min-w-[210px] items-center gap-4 rounded-[20px] px-5 py-3.5 transition sm:min-w-[236px]"
           >
             <div
               class="flex h-10 w-10 items-center justify-center rounded-2xl text-base font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
@@ -81,7 +79,7 @@ defineProps<{
           </article>
 
           <article
-            class="home-hover-card flex min-w-[210px] items-center gap-4 rounded-[20px] border border-white/8 bg-white/[0.035] px-5 py-3.5 text-slate-400 backdrop-blur-xl sm:min-w-[236px]"
+            class="home-model-card home-hover-card flex min-w-[210px] items-center gap-4 rounded-[20px] px-5 py-3.5 text-slate-400 sm:min-w-[236px]"
           >
             <div
               class="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/12 text-lg font-semibold text-white"
@@ -89,7 +87,7 @@ defineProps<{
               +
             </div>
             <div>
-              <h3 class="text-[1.3rem] font-medium tracking-[-0.06em] text-white/88">等系列大模型</h3>
+              <h3 class="text-[1.3rem] font-medium tracking-[-0.06em] text-white/88">更多系列模型</h3>
             </div>
           </article>
         </div>
@@ -97,3 +95,22 @@ defineProps<{
     </div>
   </section>
 </template>
+
+<style scoped>
+.home-feature-card,
+.home-model-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, rgba(15, 31, 54, 0.78), rgba(9, 15, 26, 0.58));
+  box-shadow:
+    0 24px 84px rgba(4, 10, 28, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+}
+
+.home-model-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+}
+</style>
